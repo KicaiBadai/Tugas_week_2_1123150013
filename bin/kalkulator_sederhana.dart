@@ -12,33 +12,56 @@ double _readNumber(String label) {
 }
 
 void main() {
-while (true) {
-print('\n=== Kalkulator Sederhana ===');
-print('1) Tambah');
-print('2) Kurang');
-print('3) Kali');
-print('4) Bagi');
-print('5) Keluar');
-stdout.write('Pilih [1-5]: ');
-final pilih = stdin.readLineSync()?.trim();
-if (pilih == '5') {
-print('Bye!');
-return;
+  while (true) {
+    print('\n=== Kalkulator Sederhana ===');
+    print('1) Tambah');
+    print('2) Kurang');
+    print('3) Kali');
+    print('4) Bagi');
+    print('5) Keluar');
+    stdout.write('Pilih [1-5]: ');
+    final pilih = stdin.readLineSync()?.trim();
+    if (pilih == '5') {
+      print('Selamat Tinggal Sayang');
+      return;
+    }
+    final a = _readNumber('Masukkan angka pertama');
+    final b = _readNumber('Masukkan angka kedua');
+    switch (pilih) {
+      case '1':
+        double hasil = tambahwang(a, b);
+        print('Hasil: $hasil');
+        break;
+      case '2':
+        double hasil = kurangwang(a, b);
+        print('Hasil: $hasil');
+        break;
+      case '3':
+        double hasil = kaliwang(a, b);
+        print('Hasil: $hasil');
+        break;
+      case '4':
+        double hasil = bagiwang(a, b);
+        print('Hasil: $hasil');
+        break;
+      default:
+        print('Pilihan tidak dikenal.');
+    }
+  }
 }
-final a = _readNumber('Masukkan angka pertama');
-final b = _readNumber('Masukkan angka kedua');
-switch (pilih) {
-case '1':
-print('Hasil: ${a + b}');
-break;
-case '2':
-print('Hasil: ${a - b}');
-case '3':
-print('Hasil: ${a * b}');
-case '4':
-print('Hasil: ${a / b}');
-default:
-print('Pilihan tidak dikenal.');
+
+double tambahwang(double a, double b) {
+  return a + b;
 }
+
+double kurangwang(double a, double b) {
+  return a - b;
 }
+
+double kaliwang(double a, double b) {
+  return a * b;
+}
+
+double bagiwang(double a, double b) {
+  return a / b;
 }
